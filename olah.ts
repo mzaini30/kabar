@@ -1,8 +1,3 @@
-import {
-  readFileSync,
-  writeFileSync,
-} from "https://deno.land/std@0.164.0/node/fs.ts";
-
-let filenya = Deno.args[0];
-filenya = readFileSync(filenya).toString();
-writeFileSync("file-baru.html", filenya);
+let filenya: Uint8Array | string = Deno.args[0];
+filenya = Deno.readFileSync(filenya);
+Deno.writeFileSync("file-baru.html", filenya);
